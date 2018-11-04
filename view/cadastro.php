@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="../assets/css/reset.css">
     <link rel="stylesheet" href="../assets/css/bulma.min.css" />
 	<link rel="stylesheet" href="../assets/css/index.css">
-    <title>iShop - Login</title>
+    <title>iShop - Cadastro</title>
 </head>
 <body>
     <header>

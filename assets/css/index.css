@@ -1,1 +1,16 @@
 /*css*/
+.button {
+    border-radius: 0;
+}
+.logo {
+    font-size: 150%;
+}
+.my-box-login {
+    padding: 2%;
+    margin-top:8%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 2%;
+}
+.title {
+    font-size:140%;
+}
