@@ -40,12 +40,12 @@
     <section>
         <div class="columns">
             <div class="my-box-login container column is-4-desktop is-11-mobile is-8-tablet ">
-                <h1 class="title">Entrar</h1>
+                <h1 class="title">Cadastrar</h1>
                 <form action="../controller/controleUsuario.php" method="POST">
                     <div class="field">
                         <label for="usuario" class="label">Usuário</label>
                         <p class="control has-icons-left has-icons-right">
-                            <input class="input" type="text" placeholder="Digite um nome de usuário" id="usuario">
+                            <input class="input" type="text" placeholder="Digite um nome de usuário" id="usuario" required>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
@@ -57,7 +57,7 @@
                     <div class="field">
                         <label for="senha" class="label">Senha</label>
                         <p class="control has-icons-left">
-                            <input class="input" type="password" placeholder="Digite sua senha" id="senha">
+                            <input class="input" type="password" placeholder="Digite sua senha" id="senha" required>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-lock"></i>
                             </span>
@@ -65,8 +65,8 @@
                     </div>
                     <div class="field">
                         <p class="control">
-                            <button class="button is-success" name="opcao" value="Entrar">Login</button>
-                            <a class="button is-link" href="cadastro.php" >Não tenho conta</a>
+                            <button class="button is-success" name="opcao" value="Entrar">Cadastrar</button>
+                            <a class="button is-link" href="login.php">Já tenho conta</a>
                         </p>
                     </div>
                 </form>
