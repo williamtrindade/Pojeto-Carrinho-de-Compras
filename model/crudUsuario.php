@@ -1,14 +1,17 @@
 <?php 
+
 	include 'conexao.php';
-	function cadastrarUsuario($nome, $senha){
+	function cadastrarUsuario($nomeUsu, $senhaUsu) {
 		conectar();
-		query("INSERT INTO usuario(nome, senha) VALUES ('$nome', '$senha')");
+		query("INSERT INTO usuario(nomeUsu, senhaUsu) VALUES ('$nomeUsu', '$senhaUsu')");
 		fechar();
 	}
-	function buscarUsuario($nome){
+	
+	function buscarUsuario($nomeUsu) {
 		conectar();
-		$resultado = query("SELECT * FROM usuario WHERE nome = '$nome' ");
+		$resultado = query("SELECT * FROM usuario WHERE nomeUsu = '$nomeUsu' ");
 		fechar();
 		return $resultado;
 	}
+
 ?>

@@ -1,3 +1,16 @@
+<?php 
+    
+    session_start();
+    if(isset($_SESSION['nomeUsu'])) {
+        if(isset($_POST['nomeFuncionario'])) {
+            header("Location: ../view/visualizarprodutoscadastrados");
+        }elseif (isset($_SESSION['nomeCliente'])) {
+            header("Location: ../view/../view/visualizarprodutos");
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,22 +30,6 @@
                     <a class="navbar-item" href="login.php">
                         <p class="logo"><strong>iShop</strong></p>
                     </a>
-                    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                    </a>
-                </div>
-                <div id="navbarBasicExample" class="navbar-menu">
-                    <div class="navbar-end">
-                        <div class="navbar-item">
-                            <div class="buttons">
-                                <a class="button is-primary">
-                                    <strong>Cadastrar</strong>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </nav>
@@ -45,16 +42,21 @@
                     <div class="field">
                         <label for="usuario" class="label">Usuário</label>
                         <p class="control has-icons-left has-icons-right">
-                            <input class="input" type="text" placeholder="Digite um nome de usuário" id="usuario" required>
+                            <input class="input" type="text" placeholder="Digite um nome de usuário" id="usuario" name="nomeUsu" required>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
                         </p>
                     </div>
                     <div class="field">
+                        <label class="checkbox">
+                            <input type="checkbox" name="funcionario" value="marcado"> Funcionário
+                        </label>
+                    </div>
+                    <div class="field">
                         <label for="senha" class="label">Senha</label>
                         <p class="control has-icons-left">
-                            <input class="input" type="password" placeholder="Digite sua senha" id="senha" required>
+                            <input class="input" type="password" placeholder="Digite sua senha" id="senha" name="senhaUsu"  required>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-lock"></i>
                             </span>
