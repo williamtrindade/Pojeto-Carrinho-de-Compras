@@ -64,7 +64,7 @@
                     </div>
                     <div class="field">
                         <p class="control">
-                            <button class="button is-success" name="opcao" value="Entrar">Login</button>
+                            <button class="button is-success" name="opcao" value="Entrar" type="submit">Login</button>
                             <a class="button is-link" href="cadastro.php" >Não tenho conta</a>
                         </p>
                     </div>

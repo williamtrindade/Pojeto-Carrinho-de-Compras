@@ -22,14 +22,14 @@
     <link rel="stylesheet" href="../../assets/css/reset.css">
     <link rel="stylesheet" href="../../assets/css/bulma.min.css" />
     <link rel="stylesheet" href="../../assets/css/index.css">
-    <title>iShop - Cliente - Visualizar Produtos</title>
+    <title>iShop - Funcionário - Cadastrar Produtos</title>
 </head>
 <body>
     <header>
         <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="login.php">
+                    <a class="navbar-item" href="index.php">
                         <p class="logo"><strong>iShop</strong></p>
                     </a>
                     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -42,8 +42,10 @@
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <div class="buttons">
+                                <a href="../cadastrarproduto" class="button is-primary"><strong>Cadastrar</strong></a>
+                                <a href="../visualizarprodutoscadastrados" class="button is-dark"><strong>Visualizar</strong></a>
                                 <p class="button is-dark">
-                                    <strong>Cliente: <?php echo $_SESSION['nomeCliente']; ?></strong>
+                                    Funcionário: <?php echo $_SESSION['nomeFuncionario']; ?>
                                 </p>
                                 <a class="button is-danger" href="../../controller/controleUsuario.php?opcao=Sair">
                                     Sair
@@ -59,26 +61,40 @@
         <div class="columns">
             <div class="column container">
                 <h3 class="title is-3" style="margin-top: 2%;">Cadastrar Produtos</h3>
-                <table class="table is-fullwidth is-striped">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Descrição</th>
-                            <th>Opção</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>fdffffffffffffff</td>
-                            <td>fdfd</td>
-                            <td><a class="button is-primary">Editar</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <form action="../../controller/controleProduto.php" method="POST">
+                    <div class="field">
+                        <label class="label" for="nome">Nome</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Digite o nome do Produto" name="nomePro" id="nome">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label" for="descricao">Descrição</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Digite uma descrição para o produto" name="descricaoPro" id="descricao">
+                      </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label" for="preco">Preço</label>
+                        <div class="control">
+                            <input class="input" type="text" name="precoPro" id="preco" placeholder="R$">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-success" name="opcao" value="Cadastrar Produto" type="submit">Cadastrar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
     <script src="../../assets/js/all.js"></script>
+    <script src="../../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../../assets/js/jquery.mask.min.js"></script>
     <script src="../../assets/js/index.js"></script>
+    <script src="../../assets/js/mascara.js"></script>
 </body>
 </html>

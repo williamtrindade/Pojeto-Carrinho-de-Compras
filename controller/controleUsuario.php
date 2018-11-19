@@ -19,6 +19,8 @@
 			$senhaBanco = "null";
 			$resultado = buscarUsuario($nomeUsu);
 			while($linha = mysqli_fetch_assoc($resultado)) {
+				// pego o código do usuario para criar uma sessao e usar nas compras
+				$codigoUsu = $linha['codigoUsu'];
 				$nomeBanco = $linha['nomeUsu'];
 				$senhaBanco = $linha['senhaUsu'];
 			}
@@ -26,9 +28,10 @@
 				if($senhaUsu == $senhaBanco) {
 					session_start();
 					$_SESSION['nomeUsu'] = $nomeBanco;
+					$_SESSION['codigoUsu'] = $codigoUsu;
 					if(isset($_POST['funcionario'])) {
 						$_SESSION['nomeFuncionario'] = $nomeBanco;
-						header("Location: ../view/visualizarprodutoscadastrados");
+						header("Location: ../view/cadastrarproduto");
 					}else {
 						$_SESSION['nomeCliente'] = $nomeBanco;
 						header("Location: ../view/../view/visualizarprodutos");

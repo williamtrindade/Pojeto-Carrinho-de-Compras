@@ -58,8 +58,8 @@
                     </div>
                     <div class="field">
                         <p class="control">
-                            <button class="button is-success" name="opcao" value="Cadastrar Usuário">Cadastrar</button>
-                             <a class="button is-link" href="login.php">Já tenho conta</a>
+                            <button class="button is-success" name="opcao" value="Cadastrar Usuário" type="submit">Cadastrar</button>
+                            <a class="button is-link" href="login.php">Já tenho conta</a>
                         </p>
                     </div>
                 </form>

@@ -29,7 +29,7 @@
         <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="login.php">
+                    <a class="navbar-item" href="index.php">
                         <p class="logo"><strong>iShop</strong></p>
                     </a>
                     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -47,7 +47,7 @@
                                 <p class="button is-dark">
                                     Funcionário: <?php echo $_SESSION['nomeFuncionario']; ?>
                                 </p>
-                                <a class="button is-dark" href="../../controller/controleUsuario.php?opcao=Sair">
+                                <a class="button is-danger" href="../../controller/controleUsuario.php?opcao=Sair">
                                     Sair
                                 </a>
                             </div>
@@ -60,28 +60,42 @@
     <section>
         <div class="columns">
             <div class="column container">
-                <h3 class="title is-3" style="margin-top: 2%;">Cadastrar Produtos</h3>
+                <h3 class="title is-3" style="margin-top: 2%;">Visualizar Produtos</h3>
+                <form>
+                    <div class="field">
+                        <label for="pesquisa" class="label">Pesquisa</label>
+                        <p class="control has-icons-left has-icons-right">
+                            <input class="input" type="text" placeholder="Digite um nome ou descrição para pesquisar" id="pesquisa" name="pesquisa">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
                 <table class="table is-fullwidth is-striped">
                     <thead>
                         <tr>
                             <th>Nome</th>
                             <th>Descrição</th>
+                            <th>Preço</th>
                             <th>Opção</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="table-results">
                         <?php 
                             include '../../model/crudProduto.php';
                             $resultado = mostrarProduto();
-                            if($resultado){
+                            if($resultado) {
                                 while($linha = mysqli_fetch_assoc($resultado)) {
                                     $codigoPro = $linha['codigoPro'];
                                     $nomePro = $linha['nomePro'];
                                     $descricaoPro = $linha['descricaoPro']; 
+                                    $precoPro = $linha['precoPro'];
                                     echo "
                                         <tr>
                                             <td>$nomePro</td>
                                             <td>$descricaoPro</td>
+                                            <td>R$ $precoPro</td>
                                             <td>
                                                 <a class='button is-primary' href='../editarproduto?codigo=$codigoPro'>Editar
                                                 </a>
@@ -97,6 +111,9 @@
         </div>
     </section>
     <script src="../../assets/js/all.js"></script>
+    <script src="../../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../../assets/js/popper.min.js"></script>
     <script src="../../assets/js/index.js"></script>
+    <script src="../../assets/js/pesquisar.js"></script>
 </body>
 </html>

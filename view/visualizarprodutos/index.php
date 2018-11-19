@@ -12,6 +12,7 @@
         header("Location: ../login.php");
     }
 
+    $codigoUsuLogado = $_SESSION['codigoUsu'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,8 +43,10 @@
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <div class="buttons">
+                                <a href="../visualizarprodutos" class="button is-primary"><strong>Produtos</strong></a>
+                                <a href="../carrinhodecompras" class="button is-dark"><strong>Carrinho</strong></a>
                                 <p class="button is-dark">
-                                    <strong>Cliente: <?php echo $_SESSION['nomeCliente']; ?></strong>
+                                    Cliente: <?php echo $_SESSION['nomeCliente']; ?>
                                 </p>
                                 <a class="button is-danger" href="../../controller/controleUsuario.php?opcao=Sair">
                                     Sair
@@ -58,21 +61,40 @@
     <section>
         <div class="columns">
             <div class="column container">
-                <h3 class="title is-3" style="margin-top: 2%;">Cadastrar Produtos</h3>
+                <h3 class="title is-3" style="margin-top: 2%;">Produtos</h3>
                 <table class="table is-fullwidth is-striped">
                     <thead>
                         <tr>
                             <th>Nome</th>
                             <th>Descrição</th>
+                            <th>Preço</th>
                             <th>Opção</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>fdffffffffffffff</td>
-                            <td>fdfd</td>
-                            <td><a class="button is-primary">Editar</a></td>
-                        </tr>
+                        <?php
+                            include '../../model/crudVenda.php';
+                            $resultado = mostrarProdutos();
+                            if($resultado){
+                                while($linha = mysqli_fetch_assoc($resultado)) {
+                                    $codigoPro = $linha['codigoPro'];
+                                    $nomePro = $linha['nomePro'];
+                                    $descricaoPro = $linha['descricaoPro'];
+                                    $precoPro = $linha['precoPro'];
+                                    $codigoUsuLogado = $_SESSION['codigoUsu'];
+                                    echo "
+                                        <tr>
+                                            <td>$nomePro</td>
+                                            <td>$descricaoPro</td>
+                                            <td>$precoPro</td>                                            
+                                            <td>
+                                                <a class='button is-primary' href='../../controller/controleVenda.php?opcao=selecionar&codigoPro=$codigoPro&codigoUsuLogado=$codigoUsuLogado'>Selecionar</a>
+                                            </td>
+                                        </tr>
+                                    ";
+                                }
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>
